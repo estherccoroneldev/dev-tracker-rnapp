@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {User} from '../store/userReducer';
 
 /**
  * Função para buscar informações de um usuário do Github
@@ -6,7 +7,7 @@ import axios from 'axios';
  * @param username - Nome de usuário do Github.
  * @returns Retorna uma Promise com os dados do usuário.
  */
-export const fetchUserData = async (username: string) => {
+export const fetchUserData = async (username: string): Promise<User> => {
   try {
     const response = await axios.get(
       `https://api.github.com/users/${username}`,
@@ -19,6 +20,7 @@ export const fetchUserData = async (username: string) => {
 
 /**
  *
+ * TO DO: tratamento de erro UI
  * Error Message:
  * {
     message: "Not Found",
