@@ -1,9 +1,9 @@
-import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import UserFinderScreen from '../screens/UserFinderScreen.tsx';
+import React from 'react';
 import UserDetailsScreen from '../screens/UserDetails/UserDetailsScreen.tsx';
-import UserRepositoriesScreen from '../screens/UserRepositoriesScreen/UserRespositories.tsx';
+import UserFinderScreen from '../screens/UserFinderScreen.tsx';
+import UserRepositoriesScreen from '../screens/UserRepositoriesScreen/UserRepositoriesScreen.tsx';
 import {User} from '../store/userReducer.ts';
 
 // Definindo tipos de navegação
@@ -13,7 +13,7 @@ export type RootStackParamList = {
     user: User;
   };
   UserRepositories: {
-    reposUrl?: string;
+    reposUrl: string;
   };
 };
 
