@@ -1,5 +1,5 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {Heading} from 'native-base';
+import {Heading, Icon} from 'native-base';
 import React, {useState} from 'react';
 import {
   ActivityIndicator,
@@ -15,6 +15,8 @@ import RepoItem from '../../components/RepoItem';
 import ReposList from '../../components/ReposList';
 import useRepositories, {Repository} from '../../hooks/useRepositories';
 import {RootStackParamList} from '../../navigation/RootNavigator';
+import MaterialIcon from '@react-native-vector-icons/material-icons';
+import {COLORS} from '../../shared/constants';
 
 const PAGE_TITLE = 'Repositories';
 
@@ -66,13 +68,22 @@ const UserRepositoriesScreen: React.FC = () => {
             },
             styles.wrapperCustom,
           ]}>
-          <Text>{order.toUpperCase()}</Text>
+          <Text style={{fontSize: 12, color: COLORS.secondary}}>
+            Best Match
+          </Text>
+          <Icon
+            as={MaterialIcon}
+            name="sort"
+            color={COLORS.secondary}
+            size={4}
+            style={{transform: order === 'asc' ? 'rotate(180deg)' : undefined}}
+          />
         </Pressable>
       </View>
       {loading ? (
         <ActivityIndicator size="large" />
       ) : errorMessage ? (
-        <Text>Error: {errorMessage}</Text>
+        <Text style={styles.error}>{errorMessage}</Text>
       ) : (
         <ReposList repositories={repos} renderRepository={renderRepository} />
       )}
@@ -95,6 +106,13 @@ const styles = StyleSheet.create({
   wrapperCustom: {
     borderRadius: 8,
     padding: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 2,
+  },
+  error: {
+    color: 'red',
+    marginTop: 20,
   },
 });
 

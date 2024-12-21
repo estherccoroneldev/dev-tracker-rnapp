@@ -26,6 +26,7 @@ const RootNavigator = () => {
         screenOptions={{
           title: '',
           headerShadowVisible: false,
+          headerBackTitleVisible: false,
         }}
         initialRouteName="UserFinder">
         <Stack.Screen name="UserFinder" component={UserFinderScreen} />

@@ -49,7 +49,7 @@ const UserDetailsScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
-      {/* Improves performance, mostly when there are multiple images to show up */}
+      {/* FastImage improves performance, mostly when there are multiple images to show up */}
       <FastImage
         source={{
           uri: user.avatar_url,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   itemValue: {
     fontSize: 18,
-    color: COLORS.primary,
+    color: COLORS.secondary,
     textAlign: 'center',
   },
   divider: {

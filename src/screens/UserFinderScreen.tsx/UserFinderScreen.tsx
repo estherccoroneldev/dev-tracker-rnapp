@@ -19,12 +19,16 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {RootStackParamList} from '../../navigation/RootNavigator';
 import {COLORS} from '../../shared/constants';
 import {fetchUser} from '../../store/userReducer';
+import {Icon} from 'native-base';
+import MaterialIcon from '@react-native-vector-icons/material-icons';
+import SearchItem from '../../components/SearchItem';
 
 type UserFinderScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'UserFinder'
 >;
 
+const TITLE = 'Find a Dev';
 const UserFinderScreen: React.FC = () => {
   const navigation = useNavigation<UserFinderScreenNavigationProp>();
   const dispatch = useAppDispatch();
@@ -59,28 +63,32 @@ const UserFinderScreen: React.FC = () => {
         keyboardVerticalOffset={120}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={{flex: 1}}>
-            <Text style={styles.title}>Find a Dev</Text>
-            {/* TO DO: Add the search icon to the end */}
-            <TextInput
-              style={styles.input}
+            <Text style={styles.title}>{TITLE}</Text>
+            <SearchItem
               placeholder="Search a Dev"
               value={inputUsername}
-              onChangeText={setInputUsername}
-              cursorColor="#1C18F2"
-              autoCapitalize="none"
-              contextMenuHidden={true}
+              handleChange={setInputUsername}
             />
-            {/* TO DO: Add the icon library to implement an icon to the end of the user card */}
             {status === 'loading' ? (
               <ActivityIndicator />
             ) : status === 'succeeded' && user ? (
               <TouchableOpacity
                 style={styles.userInfo}
                 onPress={handleNavigateToUserDetails}>
-                <Text style={styles.name}>{user.name}</Text>
-                <View style={styles.followersContent}>
-                  <Text>Followers: {user.followers}</Text>
-                  <Text>Following: {user.following}</Text>
+                <View style={{flex: 1, gap: 4}}>
+                  <Text style={styles.name}>{user.name}</Text>
+                  <View style={styles.followersContent}>
+                    <Text>Followers: {user.followers}</Text>
+                    <Text>Following: {user.following}</Text>
+                  </View>
+                </View>
+                <View>
+                  <Icon
+                    as={MaterialIcon}
+                    name="chevron-right"
+                    color={COLORS.secondary}
+                    size={8}
+                  />
                 </View>
               </TouchableOpacity>
             ) : status === 'failed' ? (
@@ -124,7 +132,9 @@ const styles = StyleSheet.create({
     borderColor: '#F3F8FE',
     borderWidth: 2,
     padding: 10,
-    gap: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   error: {
     color: 'red',
@@ -133,11 +143,11 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#007bff',
+    color: COLORS.secondary,
   },
   followersContent: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 12,
   },
   button: {
     borderRadius: 16,
