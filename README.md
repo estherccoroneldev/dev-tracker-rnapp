@@ -223,9 +223,9 @@ I welcome contributions! To contribute:
 
 1. Fork the repository.
 2. Clone your fork.
-3. Create a feature branch (git checkout -b feature-name).
-4. Make your changes and commit them (git commit -m 'feat: Add new feature').
-5. Push to your fork (git push origin feature-name).
+3. Create a feature branch (`git checkout -b feature-name`).
+4. Make your changes and commit them (`git commit -m 'feat: Add new feature'`).
+5. Push to your fork (`git push origin feature-name`).
 6. Create a pull request.
 
 # Troubleshooting
