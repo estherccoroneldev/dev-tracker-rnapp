@@ -6,6 +6,7 @@ import UserFinderScreen from '../screens/UserFinderScreen.tsx';
 import UserRepositoriesScreen from '../screens/UserRepositoriesScreen/UserRepositoriesScreen.tsx';
 import {User} from '../store/userReducer.ts';
 import {COLORS} from '../shared/constants.ts';
+import {Platform} from 'react-native';
 
 // Definindo tipos de navegação
 export type RootStackParamList = {
@@ -34,7 +35,9 @@ const RootNavigator = () => {
           name="UserFinder"
           component={UserFinderScreen}
           options={{
-            headerShown: false,
+            headerStyle: {
+              backgroundColor: COLORS.muted700,
+            },
           }}
         />
         <Stack.Screen
@@ -42,7 +45,7 @@ const RootNavigator = () => {
           component={UserDetailsScreen}
           options={{
             headerLeftContainerStyle: {
-              paddingLeft: 4,
+              paddingLeft: Platform.OS === 'android' ? 4 : 12,
             },
             headerTintColor: COLORS.secondary,
           }}
@@ -58,7 +61,7 @@ const RootNavigator = () => {
               color: COLORS.black,
             },
             headerLeftContainerStyle: {
-              paddingLeft: 4,
+              paddingLeft: Platform.OS === 'android' ? 4 : 12,
             },
             headerTintColor: COLORS.secondary,
           }}

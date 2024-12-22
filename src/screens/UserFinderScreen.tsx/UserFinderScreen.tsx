@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {
   ActivityIndicator,
   Keyboard,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -16,7 +17,14 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {RootStackParamList} from '../../navigation/RootNavigator';
 import {COLORS} from '../../shared/constants';
 import {fetchUser} from '../../store/userReducer';
-import {Box, Heading, Icon, Image, VStack} from 'native-base';
+import {
+  Box,
+  Heading,
+  Icon,
+  Image,
+  KeyboardAvoidingView,
+  VStack,
+} from 'native-base';
 import MaterialIcon from '@react-native-vector-icons/material-icons';
 import SearchItem from '../../components/SearchItem';
 
@@ -55,9 +63,12 @@ const UserFinderScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{flex: 1}}>
+        <KeyboardAvoidingView
+          style={{flex: 1}}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 110 : undefined}>
           <Box _light={{bg: '#fff'}} flex={1}>
-            <VStack _light={{bg: 'muted.700'}} w={'100%'} pt={8} px={4}>
+            <VStack _light={{bg: 'muted.700'}} w={'100%'} px={6}>
               <SearchItem
                 placeholder="Search a Dev"
                 value={inputUsername}
@@ -68,10 +79,9 @@ const UserFinderScreen: React.FC = () => {
                 fontFamily="heading"
                 position="absolute"
                 color="#FFFFFF"
-                top={180}
+                top={150}
                 zIndex={1}
-                left={10}
-                w="80%">
+                left={10}>
                 {TITLE}
               </Heading>
               <Image
@@ -114,8 +124,12 @@ const UserFinderScreen: React.FC = () => {
               <Text style={styles.error}>: {error}</Text>
             ) : null}
           </Box>
-          <PrimaryButton title="Find" onPress={handleFindAUser} />
-        </View>
+          <PrimaryButton
+            title="Find"
+            onPress={handleFindAUser}
+            style={{marginHorizontal: 24}}
+          />
+        </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </SafeAreaView>
   );
@@ -139,7 +153,7 @@ const styles = StyleSheet.create({
   },
   userInfo: {
     marginTop: 40,
-    marginHorizontal: 12,
+    marginHorizontal: 24,
     borderRadius: 16,
     borderColor: '#F3F8FE',
     borderWidth: 2,

@@ -12,10 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-DevTracker-DevTrackerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DevTracker-DevTrackerTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		461B067E71874A0883E43FBF /* nunito_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8F73A832D404328A02524BB /* nunito_bold.ttf */; };
 		646B2070F68144F7980E27F5 /* nunito_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9400B21587B4572992AC2A3 /* nunito_regular.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-DevTracker-DevTrackerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DevTracker-DevTrackerTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +45,9 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-DevTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DevTracker/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-DevTracker-DevTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevTracker-DevTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-DevTracker-DevTrackerTests/Pods-DevTracker-DevTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8F73A832D404328A02524BB /* nunito_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = nunito_bold.ttf; path = ../assets/fonts/nunito_bold.ttf; sourceTree = "<group>"; };
+		B9400B21587B4572992AC2A3 /* nunito_regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = nunito_regular.ttf; path = ../assets/fonts/nunito_regular.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		B8F73A832D404328A02524BB /* nunito_bold.ttf */ = {isa = PBXFileReference; name = "nunito_bold.ttf"; path = "../assets/fonts/nunito_bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B9400B21587B4572992AC2A3 /* nunito_regular.ttf */ = {isa = PBXFileReference; name = "nunito_regular.ttf"; path = "../assets/fonts/nunito_regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +154,14 @@
 			sourceTree = "<group>";
 		};
 		DD6DECFB2AC64A2CA5CA6F15 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				B8F73A832D404328A02524BB /* nunito_bold.ttf */,
 				B9400B21587B4572992AC2A3 /* nunito_regular.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

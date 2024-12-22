@@ -54,7 +54,7 @@ const UserRepositoriesScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.sortContainer}>
-        <Text>Sort By:</Text>
+        <Text style={styles.sort}>Sort By:</Text>
         <Pressable
           onPress={handleSortOrder}
           style={({pressed}) => [
@@ -110,6 +110,11 @@ const styles = StyleSheet.create({
   match: {
     fontSize: 12,
     color: COLORS.secondary,
+    fontWeight: 'normal',
+    fontFamily: 'Nunito Regular',
+  },
+  sort: {
+    fontSize: 14,
     fontWeight: 'normal',
     fontFamily: 'Nunito Regular',
   },
