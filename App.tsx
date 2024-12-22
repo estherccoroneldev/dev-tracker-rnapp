@@ -5,10 +5,25 @@ import RootNavigator from './src/navigation/RootNavigator';
 
 import {Provider} from 'react-redux';
 import store from './src/store';
+import {LogBox} from 'react-native';
 
+LogBox.ignoreAllLogs();
 const config = {
   useSystemColorMode: false,
   initialColorMode: 'light',
+  fontConfig: {
+    Nunito: {
+      100: {
+        normal: 'Nunito-Regular',
+        bold: 'Nunito-Bold',
+      },
+    },
+  },
+  fonts: {
+    heading: 'Nunito-Bold',
+    body: 'Nunito-Regular',
+    mono: 'Nunito-Regular',
+  },
 };
 
 export const theme = extendTheme({config});

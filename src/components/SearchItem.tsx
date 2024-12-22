@@ -15,32 +15,37 @@ const SearchItem: React.FC<SearchItemProps> = ({
   return (
     <Input
       my={2}
-      p={4}
+      px={4}
+      py={2}
+      alignItems="center"
+      fontFamily="body"
       placeholder={placeholder}
       placeholderTextColor="muted.400"
+      color="muted.400"
       variant="outlined"
       size="xl"
-      borderRadius={24}
+      borderRadius={12}
       onChangeText={handleChange}
-      cursorColor="info.200"
-      tintColor="info.200"
-      borderColor="muted.200"
-      focusOutlineColor="muted.200"
-      autoCapitalize="none"
-      InputRightElement={
+      borderColor="muted.600"
+      focusOutlineColor="muted.600"
+      InputLeftElement={
         <Icon
           as={MaterialIcon}
           name="search"
           size={6}
-          mr="4"
+          ml="4"
           color="muted.400"
         />
       }
       _dark={{
-        backgroundColor: 'muted.200',
+        backgroundColor: 'muted.900',
+      }}
+      _web={{
+        shadow: 2,
+        borderWidth: 0,
       }}
       _light={{
-        backgroundColor: 'muted.200',
+        backgroundColor: 'muted.600',
       }}
       {...props}
     />

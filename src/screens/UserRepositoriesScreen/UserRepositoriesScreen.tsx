@@ -1,5 +1,5 @@
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {Heading, Icon} from 'native-base';
+import {Icon} from 'native-base';
 import React, {useState} from 'react';
 import {
   ActivityIndicator,
@@ -17,8 +17,6 @@ import useRepositories, {Repository} from '../../hooks/useRepositories';
 import {RootStackParamList} from '../../navigation/RootNavigator';
 import MaterialIcon from '@react-native-vector-icons/material-icons';
 import {COLORS} from '../../shared/constants';
-
-const PAGE_TITLE = 'Repositories';
 
 type UserRepositoriesScreenRouteProp = RouteProp<
   RootStackParamList,
@@ -55,9 +53,6 @@ const UserRepositoriesScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Heading size="xl" px={4} fontWeight={500}>
-        {PAGE_TITLE}
-      </Heading>
       <View style={styles.sortContainer}>
         <Text>Sort By:</Text>
         <Pressable
@@ -68,9 +63,7 @@ const UserRepositoriesScreen: React.FC = () => {
             },
             styles.wrapperCustom,
           ]}>
-          <Text style={{fontSize: 12, color: COLORS.secondary}}>
-            Best Match
-          </Text>
+          <Text style={styles.match}>Best Match</Text>
           <Icon
             as={MaterialIcon}
             name="sort"
@@ -81,7 +74,7 @@ const UserRepositoriesScreen: React.FC = () => {
         </Pressable>
       </View>
       {loading ? (
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={COLORS.secondary} />
       ) : errorMessage ? (
         <Text style={styles.error}>{errorMessage}</Text>
       ) : (
@@ -113,6 +106,12 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     marginTop: 20,
+  },
+  match: {
+    fontSize: 12,
+    color: COLORS.secondary,
+    fontWeight: 'normal',
+    fontFamily: 'Nunito Regular',
   },
 });
 

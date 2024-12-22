@@ -5,6 +5,7 @@ import UserDetailsScreen from '../screens/UserDetails/UserDetailsScreen.tsx';
 import UserFinderScreen from '../screens/UserFinderScreen.tsx';
 import UserRepositoriesScreen from '../screens/UserRepositoriesScreen/UserRepositoriesScreen.tsx';
 import {User} from '../store/userReducer.ts';
+import {COLORS} from '../shared/constants.ts';
 
 // Definindo tipos de navegação
 export type RootStackParamList = {
@@ -29,10 +30,38 @@ const RootNavigator = () => {
           headerBackTitleVisible: false,
         }}
         initialRouteName="UserFinder">
-        <Stack.Screen name="UserFinder" component={UserFinderScreen} />
-        <Stack.Screen name="UserDetails" component={UserDetailsScreen} />
+        <Stack.Screen
+          name="UserFinder"
+          component={UserFinderScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="UserDetails"
+          component={UserDetailsScreen}
+          options={{
+            headerLeftContainerStyle: {
+              paddingLeft: 4,
+            },
+            headerTintColor: COLORS.secondary,
+          }}
+        />
         <Stack.Screen
           name="UserRepositories"
+          options={{
+            title: 'Repositories',
+            headerTitleStyle: {
+              fontWeight: '700',
+              fontFamily: 'Nunito Bold',
+              fontSize: 24,
+              color: COLORS.black,
+            },
+            headerLeftContainerStyle: {
+              paddingLeft: 4,
+            },
+            headerTintColor: COLORS.secondary,
+          }}
           component={UserRepositoriesScreen}
         />
       </Stack.Navigator>

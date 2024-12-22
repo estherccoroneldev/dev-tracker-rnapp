@@ -19,34 +19,40 @@ const RepoItem: React.FC<Props> = ({
 }) => {
   return (
     <TouchableOpacity style={styles.repoInfo} onPress={onPress}>
-      <Text style={styles.name}>{name}</Text>
-      {description ? <Text numberOfLines={2}>{description}</Text> : null}
-      <View style={styles.row}>
+      <View style={{gap: 3}}>
+        <Text style={styles.name}>{name}</Text>
+        {description ? (
+          <Text numberOfLines={2} style={styles.description}>
+            {description}
+          </Text>
+        ) : null}
         <View style={styles.row}>
-          {language ? (
-            <Text style={{color: COLORS.grayDark}}>{language}</Text>
-          ) : null}
-          <View style={{flexDirection: 'row'}}>
-            <Icon
-              as={MaterialIcon}
-              name="star-border"
-              color={COLORS.grayDark}
-              size={4}
-            />
-            <Text style={{color: COLORS.grayDark}}>{stargazers_count}</Text>
+          <View style={[styles.row, styles.rowContainer]}>
+            {language ? (
+              <Text style={{color: COLORS.grayDark}}>{language}</Text>
+            ) : null}
+            <View style={styles.row}>
+              <Icon
+                as={MaterialIcon}
+                name="star-border"
+                color={COLORS.grayDark}
+                size={4}
+              />
+              <Text style={{color: COLORS.grayDark}}>{stargazers_count}</Text>
+            </View>
+            <View style={styles.row}>
+              <Icon
+                as={MaterialIcon}
+                name="device-hub"
+                color={COLORS.grayDark}
+                size={4}
+              />
+              <Text style={{color: COLORS.grayDark}}>{forks_count}</Text>
+            </View>
           </View>
-          <View style={{flexDirection: 'row'}}>
-            <Icon
-              as={MaterialIcon}
-              name="device-hub"
-              color={COLORS.grayDark}
-              size={4}
-            />
-            <Text style={{color: COLORS.grayDark}}>{forks_count}</Text>
+          <View style={styles.open}>
+            <Text style={styles.openText}>Open</Text>
           </View>
-        </View>
-        <View style={{backgroundColor: '#D4F4E2', padding: 4, borderRadius: 5}}>
-          <Text style={{color: 'green', textAlign: 'right'}}>Open</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -61,18 +67,44 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderColor: '#F3F8FE',
     borderWidth: 2,
-    padding: 10,
+    padding: 12,
     gap: 8,
   },
   name: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: '#007bff',
+    fontFamily: 'Nunito Bold',
+  },
+  description: {
+    fontWeight: 'normal',
+    fontFamily: 'Nunito Regular',
+    fontSize: 14,
+  },
+  open: {
+    backgroundColor: '#D4F4E2',
+    padding: 4,
+    paddingHorizontal: 12,
+    borderRadius: 5,
+  },
+  openText: {
+    color: 'green',
+    textAlign: 'right',
+    fontWeight: 'normal',
+    fontFamily: 'Nunito Regular',
   },
   row: {
     flexDirection: 'row',
-    gap: 10,
-    flex: 1,
     alignItems: 'center',
+  },
+  rowContainer: {
+    flex: 1,
+    gap: 12,
+  },
+  textItem: {
+    color: COLORS.grayDark,
+    fontWeight: 'normal',
+    fontFamily: 'Nunito Regular',
+    fontSize: 12,
   },
 });

@@ -17,7 +17,7 @@ type UserDetailsScreenNavigationProp = StackNavigationProp<
 
 type UserDetailsScreenRouteProp = RouteProp<RootStackParamList, 'UserDetails'>;
 
-const {width, height} = Dimensions.get('screen');
+const {height} = Dimensions.get('screen');
 
 interface ItemProps {
   text: string;
@@ -89,21 +89,25 @@ const UserDetailsScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   avatar: {
-    width: width,
     height: height * 0.4,
     marginBottom: 20,
+    borderRadius: 15,
+    marginHorizontal: 20,
   },
   name: {
     fontSize: 24,
     fontWeight: 'bold',
+    fontFamily: 'Nunito Bold',
+    color: COLORS.black,
   },
   bio: {
     flex: 0.9,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '400',
-    color: '#3A544F',
+    color: COLORS.black,
     marginVertical: 10,
   },
   itemContainer: {
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#3A544F',
+    color: COLORS.black,
   },
   itemValue: {
     fontSize: 18,
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   divider: {
-    backgroundColor: '#B8B8B8',
+    backgroundColor: COLORS.grayLight,
     width: 1,
     height: '100%',
   },
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   email: {
-    color: '#B8B8B8',
+    color: COLORS.grayLight,
   },
 });
 

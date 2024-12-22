@@ -4,11 +4,8 @@ import React, {useState} from 'react';
 import {
   ActivityIndicator,
   Keyboard,
-  KeyboardAvoidingView,
-  Platform,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
@@ -19,7 +16,7 @@ import {useAppDispatch, useAppSelector} from '../../hooks';
 import {RootStackParamList} from '../../navigation/RootNavigator';
 import {COLORS} from '../../shared/constants';
 import {fetchUser} from '../../store/userReducer';
-import {Icon} from 'native-base';
+import {Box, Heading, Icon, Image, VStack} from 'native-base';
 import MaterialIcon from '@react-native-vector-icons/material-icons';
 import SearchItem from '../../components/SearchItem';
 
@@ -57,20 +54,42 @@ const UserFinderScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['bottom']}>
-      <KeyboardAvoidingView
-        style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={120}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={{flex: 1}}>
-            <Text style={styles.title}>{TITLE}</Text>
-            <SearchItem
-              placeholder="Search a Dev"
-              value={inputUsername}
-              handleChange={setInputUsername}
-            />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{flex: 1}}>
+          <Box _light={{bg: '#fff'}} flex={1}>
+            <VStack _light={{bg: 'muted.700'}} w={'100%'} pt={8} px={4}>
+              <SearchItem
+                placeholder="Search a Dev"
+                value={inputUsername}
+                handleChange={setInputUsername}
+              />
+              <Heading
+                size="2xl"
+                fontFamily="heading"
+                position="absolute"
+                color="#FFFFFF"
+                top={180}
+                zIndex={1}
+                left={10}
+                w="80%">
+                {TITLE}
+              </Heading>
+              <Image
+                alignSelf="center"
+                source={require('../../../assets/images/banner-tech.png')}
+                alt="banner-tech"
+                borderRadius={16}
+                resizeMode="cover"
+                bottom={-20}
+              />
+            </VStack>
+
             {status === 'loading' ? (
-              <ActivityIndicator />
+              <ActivityIndicator
+                size="large"
+                color={COLORS.secondary}
+                style={styles.indicator}
+              />
             ) : status === 'succeeded' && user ? (
               <TouchableOpacity
                 style={styles.userInfo}
@@ -94,11 +113,10 @@ const UserFinderScreen: React.FC = () => {
             ) : status === 'failed' ? (
               <Text style={styles.error}>: {error}</Text>
             ) : null}
-          </View>
-        </TouchableWithoutFeedback>
-
-        <PrimaryButton title="Find" onPress={handleFindAUser} />
-      </KeyboardAvoidingView>
+          </Box>
+          <PrimaryButton title="Find" onPress={handleFindAUser} />
+        </View>
+      </TouchableWithoutFeedback>
     </SafeAreaView>
   );
 };
@@ -106,14 +124,7 @@ const UserFinderScreen: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    backgroundColor: '#FFFFFF',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: '500',
-    lineHeight: 39,
-    marginBottom: 24,
+    backgroundColor: '#fff',
   },
   input: {
     height: 40,
@@ -127,7 +138,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   userInfo: {
-    marginTop: 20,
+    marginTop: 40,
+    marginHorizontal: 12,
     borderRadius: 16,
     borderColor: '#F3F8FE',
     borderWidth: 2,
@@ -142,8 +154,9 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 18,
-    fontWeight: 'bold',
     color: COLORS.secondary,
+    fontWeight: '700',
+    fontFamily: 'Nunito Bold',
   },
   followersContent: {
     flexDirection: 'row',
@@ -160,6 +173,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     lineHeight: 20,
+  },
+  indicator: {
+    marginTop: 40,
   },
 });
 
