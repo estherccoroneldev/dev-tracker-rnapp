@@ -204,21 +204,18 @@ You can watch a demo of the app in action here:
 
 ### on iOS: Simulator iPhone 15 Pro
 
-<video width="300" controls>
-  <source src="https://github.com/user-attachments/assets/bd97cfb5-931e-4f6d-a469-d72dda48199d" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Watch Demo Video](https://github.com/user-attachments/assets/bd97cfb5-931e-4f6d-a469-d72dda48199d)
 
 ### on Android: Android real device
 
-<video width="300" controls>
-  <source src="https://github.com/user-attachments/assets/80de890b-591b-4cda-aa82-587bdd9cbb5a" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[Watch Demo Video](https://github.com/user-attachments/assets/80de890b-591b-4cda-aa82-587bdd9cbb5a)
 
 # Next Steps
 
 **Next, configure the test environment** in order to improve the **code quality and reliability** of this project. This setup will allow to automatically validate that the app works as expected by running tests that check different aspects of the code. Additionally, it will help prevent regressions during future refactoring or updates, ensuring that changes to one part of the app don't unintentionally break existing functionality.
+
+**Adds scripts to bundle the app on iOS and Android, for production purposes**
+
 
 # Contributing
 
