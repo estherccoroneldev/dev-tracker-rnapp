@@ -160,6 +160,35 @@ This project uses Redux to manage the global state, following the Flux architect
 - `store/userReducer.ts`: Handles actions related to user data, such as storing user information and repositories.
 - `hooks/useRepositories.tsx:` A custom hook that interacts with state to fetch and manage repositories.
 
+### Visual Flow of Redux Toolkit (Flux Architecture)
+
+Here’s a visual breakdown of how data flows through Redux Toolkit, keeping the Flux architecture principles intact:
+
+```sql
+ +--------------------+                   (1) Dispatches action
+ |  User Interaction  | -----------------------> (Action)
+ | (e.g., Search User)|                             |
+ +--------------------+                             v
+          |                               +---------------------+
+          v                               |    Redux Thunk      | (2) Async action triggered (e.g., fetch data)
+   +---------------------+                +---------------------+
+   | Action (fetchUser)  | ---------------> | Fetch User Data |
+   | (e.g., Search User) |                            v
+   +---------------------+                +---------------------+
+          |                               |   Dispatch Actions   |
+          v                               |  setStatus, setUser, |
+ +---------------------+                  | setError             |
+ | Redux Reducer       | <-----------------------+---------------+
+ | (Update state)      |                            |
+ +---------------------+                            v
+          |                           +-------------------------+
+          v                           |    Redux Store          |  (3) Store updated
+ +-------------------------+          +-------------------------+ <-----------------+
+ | React Components        |          | (Updated with user data)|
+ | (Subscribed to store)   |  <-------+-------------------------+
+ +-------------------------+
+```
+
 # Usage
 
 To use the application:
