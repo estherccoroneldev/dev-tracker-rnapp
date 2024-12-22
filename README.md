@@ -203,8 +203,8 @@ To use the application:
 You can watch a demo of the app in action here:
 
 ### on iOS: Simulator iPhone 15 Pro
+[Watch Demo Video](https://github.com/user-attachments/assets/7d9cf99a-a959-49f8-9a33-1bc6c894d0d7)
 
-[Watch Demo Video](https://github.com/user-attachments/assets/bd97cfb5-931e-4f6d-a469-d72dda48199d)
 
 ### on Android: Android real device
 
