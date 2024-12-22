@@ -16,6 +16,7 @@ This is a React Native application that follows the Flux architecture using Redu
 - [State Management (Redux)](#state-management-redux)
 - [Usage](#usage)
 - [Demo Video](#demo-video)
+- [Next Steps](#next-steps)
 - [Contributing](#contributing)
 - [License](#license)
 - [Learn More](#learn-more)
@@ -214,6 +215,10 @@ You can watch a demo of the app in action here:
   <source src="https://github.com/user-attachments/assets/80de890b-591b-4cda-aa82-587bdd9cbb5a" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+# Next Steps
+
+**Next, configure the test environment** in order to improve the **code quality and reliability** of this project. This setup will allow to automatically validate that the app works as expected by running tests that check different aspects of the code. Additionally, it will help prevent regressions during future refactoring or updates, ensuring that changes to one part of the app don't unintentionally break existing functionality.
 
 # Contributing
 
