@@ -1,10 +1,64 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# DevTracker React Native App with Redux and Flux Architecture
 
-# Getting Started
+This is a React Native application that follows the Flux architecture using Redux. The app allows users to search for repositories, view details of a selected repository, and explore user profiles and their repositories.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Search for users and repositories**.
+- **User details** with repositories listed.
+- **Flux architecture** using Redux for state management.
+- **Reusable UI components** for common actions and views.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Folder Structure](#folder-structure)
+- [State Management (Redux)](#state-management-redux)
+- [Usage](#usage)
+- [Demo Video](#demo-video)
+- [Contributing](#contributing)
+- [License](#license)
+- [Learn More](#learn-more)
+
+# Installation
+
+### Prerequisites
+
+Before running the app, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (>= 18.x)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+- [Android Studio](https://developer.android.com/studio) (for Android development)
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development, macOS only)
+
+### Steps
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/estherccoroneldev/dev-tracker-rnapp.git
+   cd dev-tracker-rnapp
+   ```
+
+2. **Install dependencies:**
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Or using yarn
+
+   ```bash
+   yarn install
+   ```
+
+3. **Running the app:**
+
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+
+#### Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -18,11 +72,11 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+#### Step 2: Start the Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+**For Android**
 
 ```bash
 # using npm
@@ -32,7 +86,7 @@ npm run android
 yarn android
 ```
 
-### For iOS
+**For iOS**
 
 ```bash
 # using npm
@@ -44,29 +98,102 @@ yarn ios
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+This is one way to run the app — you can also run it directly from within Android Studio and Xcode respectively.
 
-## Step 3: Modifying your App
+# Folder Structure
 
-Now that you have successfully run the app, let's modify it.
+Here's an overview of the folder structure of the project:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```
+src
+├── components
+│   ├── PrimaryButton.tsx
+│   ├── RepoItem.tsx
+│   ├── ReposList.tsx
+│   └── SearchItem.tsx
+├── hooks
+│   ├── index.ts
+│   └── useRepositories.tsx
+├── navigation
+│   └── RootNavigator.tsx
+├── screens
+│   ├── UserDetails
+│   │   ├── UserDetailsScreen.tsx
+│   │   └── index.ts
+│   ├── UserFinderScreen.tsx
+│   │   ├── UserFinderScreen.tsx
+│   │   └── index.ts
+│   └── UserRepositoriesScreen
+│   ├── UserRepositoriesScreen.tsx
+│   └── index.ts
+├── services
+│   ├── repositoriesService.ts
+│   └── userService.ts
+├── shared
+│   └── constants.ts
+└── store
+├── index.ts
+└── userReducer.ts
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### Key Folders and Files
 
-## Congratulations! :tada:
+- `components/:` Contains reusable UI components like buttons, list items, etc.
+- `hooks/:` Custom hooks like useRepositories for fetching and managing state related to repositories.
+- `navigation/:` Contains the root navigator and handles navigation between screens.
+- `screens/:` Contains screen components for user search, user details, and user repositories.
+- `services/:` API services for interacting with external data (e.g., fetching user details, repositories).
+- `store/:` Contains Redux-related files, including actions and reducers for managing global state.
+- `shared/:` Contains shared constants or utilities.
 
-You've successfully run and modified your React Native App. :partying_face:
+# State Management (Redux)
 
-### Now what?
+This project uses Redux to manage the global state, following the Flux architecture. The application flow is structured as follows:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+- **Actions:** Triggered by user interactions, API calls, etc.
+- **Reducers:** Update the state based on dispatched actions.
+- **Store:** Holds the global state of the application, which is accessible to all components.
+
+### Redux Files Overview
+
+- `store/index.ts`: Configures and exports the Redux store.
+- `store/userReducer.ts`: Handles actions related to user data, such as storing user information and repositories.
+- `hooks/useRepositories.tsx:` A custom hook that interacts with state to fetch and manage repositories.
+
+# Usage
+
+To use the application:
+
+1. **Search for a user:** On the home screen, enter a GitHub username in the search bar and tap the Find button.
+2. **View user details:** Tap on a user to view their profile and list of repositories.
+3. **View repositories:** Navigate to a user's repositories and see more details by tapping on a repository.
+
+# Demo video
+
+You can watch a demo of the app in action here:
+
+### on iOS: Simulator iPhone 15 Pro
+
+### on Android: Android real device
+
+# Contributing
+
+I welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Clone your fork.
+3. Create a feature branch (git checkout -b feature-name).
+4. Make your changes and commit them (git commit -m 'feat: Add new feature').
+5. Push to your fork (git push origin feature-name).
+6. Create a pull request.
 
 # Troubleshooting
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 # Learn More
 
