@@ -5,9 +5,7 @@ import RootNavigator from './src/navigation/RootNavigator';
 
 import {Provider} from 'react-redux';
 import store from './src/store';
-import {LogBox} from 'react-native';
 
-LogBox.ignoreAllLogs();
 const config = {
   useSystemColorMode: false,
   initialColorMode: 'light',
