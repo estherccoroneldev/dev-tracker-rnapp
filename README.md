@@ -216,6 +216,10 @@ You can watch a demo of the app in action here:
 
 **Adds scripts to bundle the app on iOS and Android, for production purposes**
 
+**Configure an SVG package** in order to show an image or an icon component when there is no results or when it exists an error in the **UserFinderScreen**.
+
+**Configure the environment variables** in order to set the API urls for testing, staging or production environments.
+
 
 # Contributing
 
